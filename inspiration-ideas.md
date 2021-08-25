@@ -1,5 +1,7 @@
 INSPIRATION
 
+![Screen Shot 2021-08-24 at 9 03 38 PM](https://user-images.githubusercontent.com/78389005/130719531-a3c8d230-b546-431e-8f6d-f0c25f9d9d2b.png)
+
 ![Screen Shot 2021-08-24 at 5 23 10 PM](https://user-images.githubusercontent.com/78389005/130702484-2b658933-dc00-4d7b-9e49-f9d6cf35d43d.png)
 
 ![Screen Shot 2021-08-24 at 5 18 13 PM](https://user-images.githubusercontent.com/78389005/130702381-a27e8abe-cef6-4faf-8907-9266755ef13e.png)
