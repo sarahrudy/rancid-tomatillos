@@ -1,32 +1,26 @@
-import React, { Component } from 'react'
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import movieData from './movieData.js'
+import Movies from './Movies.js';
+import movieData from './movieData.js';
 
 class App extends Component {
   constructor() {
-    super(); 
-      this.state = {
-        movies: movieData.movies,
-      }
+    super();
+    this.state = {
+      movies: movieData.movies,
+    };
   }
 
-    render() {
-      return (
-        <div className="app">
-          <h1>MOVIES GO HERE</h1>
-        </div>
-      )
-    }
+  render() {
+    return (
+      <div className="app">
+        <Movies movies={this.state.movies} />
+      </div>
+    );
   }
-  
-  
-  {/* <Movies movies={this.state.movies} */}
-
+}
 
 export default App;
-
-
 
 // function App() {
 //   return (
