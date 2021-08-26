@@ -11,4 +11,8 @@ const Movies = ({ movies }) => {
       />
     );
   });
+
+  return <div className="movies-container">{movieCard}</div>;
 };
+
+export default Movies;
