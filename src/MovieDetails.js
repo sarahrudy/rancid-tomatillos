@@ -10,7 +10,10 @@ class MovieDetails extends Component {
     }
   }
 
+  // componentDidMount = () => {
 
+  // }
+  
 
 }
 

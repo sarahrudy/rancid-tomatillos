@@ -9,4 +9,5 @@ const MovieCard = ({ img, title, rating }) => {
     </article>
   );
 };
+
 export default MovieCard;
