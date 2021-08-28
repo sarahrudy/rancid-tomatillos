@@ -10,7 +10,7 @@ const Movies = ({ movies }) => {
         title={movie.title}
         rating={movie.average_rating}
         key={movie.id}
-        onClick={() => getSingleMovie(movieid)} // get single movie data (key)
+        onClick={() => getSingleMovie(movie.id)} // get single movie data (key)
       />
     );
   });
