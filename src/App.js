@@ -20,14 +20,6 @@ class App extends Component {
     .catch(error => this.setState({ error: error}))
     
   }
-  // from IdeaBox
-  // componentDidMount() {
-  //   const url = 'http://localhost:3001/api/v1/ideas'
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(data => this.setState({ ideas: [...this.state.ideas, ...data] }))
-  //     .catch(error => this.setState({ error: error }))
-  // }
 
   render() {
     return (
