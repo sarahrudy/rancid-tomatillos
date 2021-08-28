@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
 import Movies from './Movies.js';
-import movieData from './movieData.js';
+// import movieData from './movieData.js';
 import Nav from './Nav.js';
+import { getMovies } from './apiCalls';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      movies: [],
+      error: '',
     };
   }
+
+  componentDidMount = () => {
+    getMovies()
+    .then(data => this.setState({ movies: [...this.state.movies, ...data.movies] }))
+    .catch(error => this.setState({ error: error}))
+    
+  }
+  // from IdeaBox
+  // componentDidMount() {
+  //   const url = 'http://localhost:3001/api/v1/ideas'
+  //   fetch(url)
+  //     .then(res => res.json())
+  //     .then(data => this.setState({ ideas: [...this.state.ideas, ...data] }))
+  //     .catch(error => this.setState({ error: error }))
+  // }
 
   render() {
     return (
