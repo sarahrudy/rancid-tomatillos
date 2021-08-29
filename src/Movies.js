@@ -2,7 +2,7 @@ import './Movies.css';
 import MovieCard from './MovieCard';
 import { getSingleMovie } from './apiCalls';
 
-const Movies = ({ movies }) => {
+const Movies = ({ movies, handleChange }) => {
   const movieCard = movies.map((movie) => {
     return (
       <MovieCard
@@ -10,7 +10,7 @@ const Movies = ({ movies }) => {
         title={movie.title}
         rating={movie.average_rating}
         key={movie.id}
-        onClick={() => getSingleMovie(movie.id)} // get single movie data (key)
+        onClick={() => handleChange(movie.id)}
       />
     );
   });
