@@ -3,6 +3,7 @@ import './App.css';
 import Movies from './Movies.js';
 import MovieDetails from './MovieDetails';
 import Nav from './Nav.js';
+import Error from './Error';
 import { getMovies, getSingleMovie } from './apiCalls';
 
 class App extends Component {
@@ -21,21 +22,19 @@ class App extends Component {
       .then((data) =>
         this.setState({ movies: [...this.state.movies, ...data.movies] })
       )
-      .catch((error) =>
-        this.setState({ error: 'We are sorry, something went wrong :(' })
-      );
+      .catch((error) => this.setState({ error: error.message }));
   }
 
   handleChange = (id) => {
     this.setState({ isSingleMovie: true });
-    getSingleMovie(id).then((movie) =>
-      this.setState({ singleMovie: movie.movie })
-    );
+    getSingleMovie(id)
+      .then((movie) => this.setState({ singleMovie: movie.movie }))
+      .catch((error) => this.setState({ error: error.message }));
   };
 
   render() {
     if (this.state.error) {
-      return <p>{this.state.error}</p>;
+      return <Error message={this.state.error} />;
     }
 
     if (!this.state.movies && !this.state.error) {
