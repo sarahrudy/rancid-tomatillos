@@ -3,7 +3,7 @@ import './App.css';
 import Movies from './Movies.js';
 import MovieDetails from './MovieDetails';
 import Nav from './Nav.js';
-import { getMovies } from './apiCalls';
+import { getMovies, getSingleMovie } from './apiCalls';
 
 class App extends Component {
   constructor() {
@@ -25,9 +25,11 @@ class App extends Component {
       );
   }
 
-  handleChange() {
-    return this.setState({ isSingleMovie: true });
-  }
+  handleChange = (id) => {
+    console.log(id);
+    this.setState({ isSingleMovie: true });
+    getSingleMovie(id);
+  };
 
   render() {
     if (this.state.error) {
@@ -38,10 +40,7 @@ class App extends Component {
       return (
         <div className="app">
           <Nav />
-          <Movies
-            movies={this.state.movies}
-            handleChange={this.state.handleChange}
-          />
+          <Movies movies={this.state.movies} handleChange={this.handleChange} />
         </div>
       );
     }

@@ -1,6 +1,6 @@
 import './Movies.css';
 import MovieCard from './MovieCard';
-import { getSingleMovie } from './apiCalls';
+// import { getSingleMovie } from './apiCalls';
 
 const Movies = ({ movies, handleChange }) => {
   const movieCard = movies.map((movie) => {
@@ -10,7 +10,8 @@ const Movies = ({ movies, handleChange }) => {
         title={movie.title}
         rating={movie.average_rating}
         key={movie.id}
-        onClick={() => handleChange(movie.id)}
+        id={movie.id}
+        handleChange={handleChange}
       />
     );
   });
