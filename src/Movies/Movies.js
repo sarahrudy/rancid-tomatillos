@@ -1,5 +1,5 @@
 import './Movies.css';
-import MovieCard from './MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 // import { getSingleMovie } from './apiCalls';
 
 const Movies = ({ movies, handleChange }) => {

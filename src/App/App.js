@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Movies from './Movies.js';
-import MovieDetails from './MovieDetails';
-import Nav from './Nav.js';
-import Error from './Error';
-import { getMovies, getSingleMovie } from './apiCalls';
+import Movies from '../Movies/Movies.js';
+import MovieDetails from '../MovieDetails/MovieDetails';
+import Nav from '../Nav/Nav.js';
+import Error from '../Error/Error';
+import { getMovies, getSingleMovie } from '../apiCalls';
 
 class App extends Component {
   constructor() {
