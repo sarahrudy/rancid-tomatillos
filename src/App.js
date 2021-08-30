@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      singleMovie: {},
       isSingleMovie: false,
       error: '',
     };
@@ -26,14 +27,23 @@ class App extends Component {
   }
 
   handleChange = (id) => {
-    console.log(id);
     this.setState({ isSingleMovie: true });
-    getSingleMovie(id);
+    getSingleMovie(id).then((movie) =>
+      this.setState({ singleMovie: movie.movie })
+    );
   };
 
   render() {
     if (this.state.error) {
       return <p>{this.state.error}</p>;
+    }
+
+    if (!this.state.movies && !this.state.error) {
+      return (
+        <div className="loading-movie">
+          <h1>We are retrieving your movie...</h1>
+        </div>
+      );
     }
 
     if (!this.state.error && !this.state.isSingleMovie) {
@@ -46,7 +56,7 @@ class App extends Component {
     }
 
     if (!this.state.error && this.state.isSingleMovie) {
-      return <MovieDetails />;
+      return <MovieDetails movie={this.state.singleMovie} />;
     }
   }
 }
