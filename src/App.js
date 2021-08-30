@@ -55,7 +55,12 @@ class App extends Component {
     }
 
     if (!this.state.error && this.state.isSingleMovie) {
-      return <MovieDetails movie={this.state.singleMovie} />;
+      return (
+        <div className="app">
+          <Nav />
+          <MovieDetails movie={this.state.singleMovie} />
+        </div>
+      );
     }
   }
 }
