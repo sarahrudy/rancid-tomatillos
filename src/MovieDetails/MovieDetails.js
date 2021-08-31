@@ -8,13 +8,23 @@ const MovieDetails = (props) => {
         className="banner-photo"
         src={props.movie.backdrop_path}
         alt={`Background banner for ${props.movie.title}`}
-      ></img>
+      />
       <div className="info">
         <img
           className="movie-poster"
           src={props.movie.poster_path}
           alt={`Poster for ${props.movie.title}`}
-        ></img>
+        />
+        {props.movie.title === '' && <p>No Title Available</p>}
+        <p>{props.movie.title}</p>
+        {props.movie.release_date === '' && <p>No Date Available</p>}
+        <p>{props.movie.release_date}</p>
+        {props.movie.overview === '' && <p>No Date Available</p>}
+        <p>{props.movie.overview}</p>
+        {props.movie.release_date === '' && <p>No Date Available</p>}
+        <p>{props.movie.release_date}</p>
+        {props.movie.release_date === '' && <p>No Date Available</p>}
+        <p>{props.movie.release_date}</p>
       </div>
     </section>
   );

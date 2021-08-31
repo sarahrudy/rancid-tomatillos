@@ -5,6 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
 import { getMovies, getSingleMovie } from '../apiCalls';
+import { Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -49,7 +50,16 @@ class App extends Component {
       return (
         <div className="app">
           <Nav />
-          <Movies movies={this.state.movies} handleChange={this.handleChange} />
+          <Route
+            exact
+            path="/"
+            component={() => (
+              <Movies
+                movies={this.state.movies}
+                handleChange={this.handleChange}
+              />
+            )}
+          />
         </div>
       );
     }
