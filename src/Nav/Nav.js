@@ -1,13 +1,15 @@
 import './Nav.css';
+import { NavLink } from 'react-router-dom';
 
 const Nav = (props) => {
   return (
     <header className="navigation-bar">
       <h1>RANCID TOMATILLOS</h1>
-      <label for="searchBar"><strong>SEARCH MOVIES </strong></label>
-      <input type="search" placeholder="type here" id="searchBar" name="search-bar" />
+      <NavLink to="/" className="back">
+        Home
+      </NavLink>
     </header>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

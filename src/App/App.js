@@ -5,7 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
 import { getMovies, getSingleMovie } from '../apiCalls';
-import { Route, NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -46,10 +46,10 @@ class App extends Component {
       );
     }
 
-    if (!this.state.error && !this.state.isSingleMovie) {
-      return (
-        <div className="app">
-          <Nav />
+    return (
+      <div className="app">
+        <Nav />
+        <Switch>
           <Route
             exact
             path="/"
@@ -60,18 +60,21 @@ class App extends Component {
               />
             )}
           />
-        </div>
-      );
-    }
-
-    if (!this.state.error && this.state.isSingleMovie) {
-      return (
-        <div className="app">
-          <Nav />
-          <MovieDetails movie={this.state.singleMovie} />
-        </div>
-      );
-    }
+          <Route
+            path="/movies/:movie_id"
+            component={({ match }) => {
+              const { params } = match;
+              return (
+                <MovieDetails
+                  id={parseInt(params.movie_id)}
+                  movie={this.state.singleMovie}
+                />
+              );
+            }}
+          />
+        </Switch>
+      </div>
+    );
   }
 }
 
