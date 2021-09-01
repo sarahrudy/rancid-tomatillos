@@ -8,7 +8,7 @@ const MovieDetails = ({ id, title, poster_path, release_date, overview, average_
       <h1>{title}</h1>
       <img src={poster_path} />
       <p className="movie-info">{release_date}, {genres.name}, {runtime}</p> 
-      <p className="average-rating">{average_rating}/10</p>
+      <p className="average-rating">{Math.floor(average_rating)}/10</p>
       <p className="tagline">{tagline}</p>
       <p className="overview">{overview}</p>
       <p className="budget"><strong>Budget: {budget}</strong></p>
