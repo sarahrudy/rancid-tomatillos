@@ -3,7 +3,7 @@ import MovieCard from '../MovieCard/MovieCard';
 // import { getSingleMovie } from './apiCalls';
 import { NavLink } from 'react-router-dom'
 
-const Movies = ({ movies, handleChange }) => {
+const Movies = ({ movies }) => {
   const movieCard = movies.map((movie) => {
     return (
       <NavLink to={`/movies/${movie.id}`}>
@@ -13,7 +13,6 @@ const Movies = ({ movies, handleChange }) => {
         rating={movie.average_rating}
         key={movie.id}
         id={movie.id}
-        handleChange={handleChange}
       />
       </NavLink>
     );

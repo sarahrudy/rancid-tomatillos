@@ -5,7 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
 import { getMovies, getSingleMovie } from '../apiCalls';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -25,14 +25,6 @@ class App extends Component {
       )
       .catch((error) => this.setState({ error: error.message }));
   }
-
-  handleChange = (id) => {
-    this.setState({ isSingleMovie: true });
-    getSingleMovie(id)
-      .then(data => console.log(data))
-      .then((movie) => this.setState({ singleMovie: movie.movie }))
-      .catch((error) => this.setState({ error: error.message }));
-  };
 
   render() {
     // if (this.state.error) {
@@ -60,7 +52,7 @@ class App extends Component {
           <Nav />
           <Switch>
           <Route exact path="/" component={() => (
-            <Movies movies={this.state.movies} handleChange={this.handleChange} />
+            <Movies movies={this.state.movies} />
           )}
           />
           <Route exact path="/movies/:movie_id" component={({ match }) => {
