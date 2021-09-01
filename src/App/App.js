@@ -5,7 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
 import { getMovies, getSingleMovie } from '../apiCalls';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -46,28 +46,33 @@ class App extends Component {
         <h1>We are retrieving your movie...</h1>
       </div> }
 
-    if (!this.state.error && !this.state.isSingleMovie) {
       return (
         <div className="app">
           <Nav />
           <Switch>
           <Route exact path="/" component={() => (
-            <Movies movies={this.state.movies} />
-          )}
-          />
+            <Movies movies={this.state.movies} /> )} />
           <Route exact path="/movies/:movie_id" component={({ match }) => {
-            const { params } = match;
+            const currentMovie = match.params.movie_id 
+            return <MovieDetails id={parseInt(currentMovie)} movie={movie_id[currentMovie]} />
+          }} />
+            
+            {/* const { params } = match;
+              console.log(match)
             return (
-              <MovieDetails id={parseInt(params.movie_id)} movie={this.state.singleMovie} />
+              <MovieDetails id={parseInt(params.movie_id)} movie={match.params} />
             );
-          }}
-         />
+          }} /> */}
+            {/* return <MovieDetails {...currentMovie} /> */}
+          <Redirect to="/" />
         </Switch>
       </div>
-      );
+      )}
     }
 
-  //   if (!this.state.error && this.state.isSingleMovie) {
+  
+  
+    //   if (!this.state.error && this.state.isSingleMovie) {
   //     return (
   //       <div className="app">
   //         <Nav />
@@ -75,7 +80,7 @@ class App extends Component {
   //       </div>
   //     );
   //   }
-  }
-}
+  
+
 
 export default App;
