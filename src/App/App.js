@@ -4,8 +4,8 @@ import Movies from '../Movies/Movies.js';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
-import { getMovies, getSingleMovie } from '../apiCalls';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { getMovies } from '../apiCalls';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
