@@ -1,6 +1,7 @@
 import './Movies.css';
 import MovieCard from '../MovieCard/MovieCard';
 // import { getSingleMovie } from './apiCalls';
+import { NavLink } from 'react-router-dom'
 
 const Movies = ({ movies, handleChange }) => {
   const movieCard = movies.map((movie) => {
