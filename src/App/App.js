@@ -43,12 +43,10 @@ class App extends Component {
             <Movies movies={this.state.movies} /> )} />
           <Route exact path="/movies/:movie_id" component={({ match }) => {
             const { params } = match
-              console.log(match)
             return (
-              <MovieDetails id={parseInt(params.movie_id)} movie={match.params} />
-            );
+              <MovieDetails id={parseInt(params.movie_id)} />
+            )
           }} />
-          <Redirect to="/" />
         </Switch>
       </div>
       )}
