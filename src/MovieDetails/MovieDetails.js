@@ -3,17 +3,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MovieDetails = ({ id, title, poster_path, release_date, overview, average_rating, genres, budget, revenue, runtime, tagline}) => {
+  console.log(genres)
   return (
     <section className="single-movie-container">
       <h1>{title}</h1>
-      <img src={poster_path} />
-      <p className="movie-info">{release_date}, {genres.name}, {runtime}</p> 
+      <img src={poster_path} alt={`Poster for ${title}`}/>
+      {/* <p className="movie-info">{release_date}, {genres[1].name}, {runtime}</p>  */}
       <p className="average-rating">{Math.floor(average_rating)}/10</p>
       <p className="tagline">{tagline}</p>
       <p className="overview">{overview}</p>
       <p className="budget"><strong>Budget: {budget}</strong></p>
       <p className="revenue"><strong>Revenue: {revenue}</strong></p>
-      <Link to={`/${type}`} className='back-btn'>◀ back</Link>
+      <Link to={`/${id}`} className='back-btn'>◀ back</Link>
     </section>
   )
 }

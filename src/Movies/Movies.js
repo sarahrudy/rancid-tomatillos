@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 const Movies = ({ movies, handleChange }) => {
   const movieCard = movies.map((movie) => {
     return (
+      <NavLink to={`/movies/${movie.id}`}>
       <MovieCard
         img={movie.poster_path}
         title={movie.title}
@@ -14,6 +15,7 @@ const Movies = ({ movies, handleChange }) => {
         id={movie.id}
         handleChange={handleChange}
       />
+      </NavLink>
     );
   });
 

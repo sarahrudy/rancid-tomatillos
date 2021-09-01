@@ -5,7 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
 import { getMovies, getSingleMovie } from '../apiCalls';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -29,40 +29,60 @@ class App extends Component {
   handleChange = (id) => {
     this.setState({ isSingleMovie: true });
     getSingleMovie(id)
+      .then(data => console.log(data))
       .then((movie) => this.setState({ singleMovie: movie.movie }))
       .catch((error) => this.setState({ error: error.message }));
   };
 
   render() {
-    if (this.state.error) {
-      return <Error message={this.state.error} />;
-    }
+    // if (this.state.error) {
+    //   return <Error message={this.state.error} />;
+    // }
 
-    if (!this.state.movies && !this.state.error) {
-      return (
-        <div className="loading-movie">
-          <h1>We are retrieving your movie...</h1>
-        </div>
-      );
-    }
+    {this.state.error && <Error message={this.state.error} /> }
+
+    // if (!this.state.movies && !this.state.error) {
+    //   return (
+    //     <div className="loading-movie">
+    //       <h1>We are retrieving your movie...</h1>
+    //     </div>
+    //   );
+    // }
+
+    {!this.state.movies && !this.state.error && 
+      <div className="loading-movie">
+        <h1>We are retrieving your movie...</h1>
+      </div> }
 
     if (!this.state.error && !this.state.isSingleMovie) {
       return (
         <div className="app">
           <Nav />
-          <Movies movies={this.state.movies} handleChange={this.handleChange} />
-        </div>
+          <Switch>
+          <Route exact path="/" component={() => (
+            <Movies movies={this.state.movies} handleChange={this.handleChange} />
+          )}
+          />
+          <Route exact path="/movies/:movie_id" component={({ match }) => {
+            const { params } = match;
+            return (
+              <MovieDetails id={parseInt(params.movie_id)} movie={this.state.singleMovie} />
+            );
+          }}
+         />
+        </Switch>
+      </div>
       );
     }
 
-    if (!this.state.error && this.state.isSingleMovie) {
-      return (
-        <div className="app">
-          <Nav />
-          <MovieDetails movie={this.state.singleMovie} />
-        </div>
-      );
-    }
+  //   if (!this.state.error && this.state.isSingleMovie) {
+  //     return (
+  //       <div className="app">
+  //         <Nav />
+  //         <MovieDetails movie={this.state.singleMovie} />
+  //       </div>
+  //     );
+  //   }
   }
 }
 
