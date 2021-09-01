@@ -4,7 +4,8 @@ import Movies from '../Movies/Movies.js';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Nav from '../Nav/Nav.js';
 import Error from '../Error/Error';
-import { getMovies, getSingleMovie } from '../apiCalls';
+import { getMovies } from '../apiCalls';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -25,44 +26,30 @@ class App extends Component {
       .catch((error) => this.setState({ error: error.message }));
   }
 
-  handleChange = (id) => {
-    this.setState({ isSingleMovie: true });
-    getSingleMovie(id)
-      .then((movie) => this.setState({ singleMovie: movie.movie }))
-      .catch((error) => this.setState({ error: error.message }));
-  };
-
   render() {
-    if (this.state.error) {
-      return <Error message={this.state.error} />;
-    }
 
-    if (!this.state.movies && !this.state.error) {
-      return (
-        <div className="loading-movie">
-          <h1>We are retrieving your movie...</h1>
-        </div>
-      );
-    }
+    {this.state.error && <Error message={this.state.error} /> }
 
-    if (!this.state.error && !this.state.isSingleMovie) {
+    {!this.state.movies && !this.state.error && 
+      <div className="loading-movie">
+        <h1>We are retrieving your movie...</h1>
+      </div> }
+
       return (
         <div className="app">
           <Nav />
-          <Movies movies={this.state.movies} handleChange={this.handleChange} />
-        </div>
-      );
+          <Switch>
+          <Route exact path="/" component={() => (
+            <Movies movies={this.state.movies} /> )} />
+          <Route exact path="/movies/:movie_id" component={({ match }) => {
+            const { params } = match
+            return (
+              <MovieDetails id={parseInt(params.movie_id)} />
+            )
+          }} />
+        </Switch>
+      </div>
+      )}
     }
 
-    if (!this.state.error && this.state.isSingleMovie) {
-      return (
-        <div className="app">
-          <Nav />
-          <MovieDetails movie={this.state.singleMovie} />
-        </div>
-      );
-    }
-  }
-}
-
-export default App;
+export default App
