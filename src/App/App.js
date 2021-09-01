@@ -27,19 +27,8 @@ class App extends Component {
   }
 
   render() {
-    // if (this.state.error) {
-    //   return <Error message={this.state.error} />;
-    // }
 
     {this.state.error && <Error message={this.state.error} /> }
-
-    // if (!this.state.movies && !this.state.error) {
-    //   return (
-    //     <div className="loading-movie">
-    //       <h1>We are retrieving your movie...</h1>
-    //     </div>
-    //   );
-    // }
 
     {!this.state.movies && !this.state.error && 
       <div className="loading-movie">
@@ -53,7 +42,7 @@ class App extends Component {
           <Route exact path="/" component={() => (
             <Movies movies={this.state.movies} /> )} />
           <Route exact path="/movies/:movie_id" component={({ match }) => {
-            const { params } = match;
+            const { params } = match
               console.log(match)
             return (
               <MovieDetails id={parseInt(params.movie_id)} movie={match.params} />
@@ -65,17 +54,4 @@ class App extends Component {
       )}
     }
 
-  
-  
-    //   if (!this.state.error && this.state.isSingleMovie) {
-  //     return (
-  //       <div className="app">
-  //         <Nav />
-  //         <MovieDetails movie={this.state.singleMovie} />
-  //       </div>
-  //     );
-  //   }
-  
-
-
-export default App;
+export default App
