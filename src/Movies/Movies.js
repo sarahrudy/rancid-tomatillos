@@ -21,3 +21,4 @@ const Movies = ({ movies }) => {
 };
 
 export default Movies;
+
