@@ -27,29 +27,39 @@ class App extends Component {
   }
 
   render() {
-
-    {this.state.error && <Error message={this.state.error} /> }
-
-    {!this.state.movies && !this.state.error && 
-      <div className="loading-movie">
-        <h1>We are retrieving your movie...</h1>
-      </div> }
-
-      return (
-        <div className="app">
-          <Nav />
-          <Switch>
-          <Route exact path="/" component={() => (
-            <Movies movies={this.state.movies} /> )} />
-          <Route exact path="/movies/:movie_id" component={({ match }) => {
-            const { params } = match
-            return (
-              <MovieDetails id={parseInt(params.movie_id)} />
-            )
-          }} />
-        </Switch>
-      </div>
-      )}
+    {
+      this.state.error && <Error message={this.state.error} />;
     }
 
-export default App
+    {
+      !this.state.movies && !this.state.error && (
+        <div className="loading-movie">
+          <h1>We are retrieving your movie...</h1>
+        </div>
+      );
+    }
+
+    return (
+      <div className="app">
+        <Nav />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={() => <Movies movies={this.state.movies} />}
+          />
+          <Route
+            exact
+            path="/movies/:movie_id"
+            component={({ match }) => {
+              const { params } = match;
+              return <MovieDetails id={parseInt(params.movie_id)} />;
+            }}
+          />
+        </Switch>
+      </div>
+    );
+  }
+}
+
+export default App;
