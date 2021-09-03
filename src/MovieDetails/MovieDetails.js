@@ -17,7 +17,7 @@ const MovieDetails = ({ id }) => {
     <section className="single-movie-container">
       <h1>{currentMovie.title}</h1>
       <img src={currentMovie.poster_path} alt={`Poster for ${currentMovie.title}`}/>
-      {/* <p className="movie-info">{release_date}, {genres[1].name}, {runtime}</p>  */}
+      <p className="movie-info">{currentMovie.release_date}, {currentMovie.genres}, {currentMovie.runtime}</p>
       <p className="average-rating">{Math.floor(currentMovie.average_rating)}/10</p>
       <p className="tagline">{currentMovie.tagline}</p>
       <p className="overview">{currentMovie.overview}</p>
