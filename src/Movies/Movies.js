@@ -1,6 +1,6 @@
 import './Movies.css';
 import MovieCard from '../MovieCard/MovieCard';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Movies = ({ movies }) => {
   const movieCard = movies.map((movie) => {
@@ -21,3 +21,4 @@ const Movies = ({ movies }) => {
 };
 
 export default Movies;
+
