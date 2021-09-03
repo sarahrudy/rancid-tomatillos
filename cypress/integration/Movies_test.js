@@ -24,37 +24,30 @@ describe('Movies', () => {
       body: {
         movies: [
           {
-            average_rating: 5,
-            backdrop_path: "https://image.tmdb.org/t/p/original//9guoVF7zayiiUq5ulKQpt375VIy.jpg",
-            id: 592350,
-            poster_path: "https://image.tmdb.org/t/p/original//zGVbrulkupqpbwgiNedkJPyQum4.jpg",
-            release_date: "2019-12-20",
-            title: "My Hero Academia: Heroes Rising",
+            average_rating: 6.666666666666667,
+            backdrop_path: "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+            id: 694919,
+            poster_path: "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+            release_date: "2020-09-29",
+            title: "Money Plane",
           },
           {
-            average_rating: 4.75,
-            backdrop_path: "https://image.tmdb.org/t/p/original//AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg",
-            id: 413518,
-            poster_path: "https://image.tmdb.org/t/p/original//4w1ItwCJCTtSi9nPfJC1vU6NIVg.jpg",
-            release_date: "2019-12-19",
-            title: "Pinocchio",
+            average_rating: 4.909090909090909,
+            backdrop_path: "https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
+            id: 337401,
+            poster_path: "https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
+            release_date: "2020-09-04",
+            title: "Mulan",
           }
         ]
       }
     })
-    cy.request('http://localhost:3000/')
-      .get('article').eq(0).contains("https://image.tmdb.org/t/p/original//zGVbrulkupqpbwgiNedkJPyQum4.jpg")
+    cy.get('article')
+      .eq(0)
+      .contains('Money Plane')
+      .get('article')
+      .eq(1)
+      .contains('Mulan');
   })
 })
 
-
-
-  //   it('should be able to click on a movie and see its details', () => {
-  //   cy.get('.movie[href="/movies/352426"]')
-  //     .click()
-  // })
-
-  // it('cy.url() - get the current URL', () => {
-  //   // https://on.cypress.io/url
-  //   cy.url().should('eq', 'https://example.cypress.io/commands/location')
-  // })
