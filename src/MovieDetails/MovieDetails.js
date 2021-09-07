@@ -1,6 +1,6 @@
 import './MovieDetails.css';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Error from '../Error/Error';
 import { getSingleMovie } from '../apiCalls';
 
@@ -31,7 +31,9 @@ const MovieDetails = ({ id }) => {
           <strong>Genres:</strong> {currentMovie.genres.join(' - ')}
         </p>
       )}
-      <p>Release Date: {currentMovie.release_date}</p>
+      <p className="release-date">
+        <strong>Release Date: </strong> {currentMovie.release_date}
+      </p>
       <p className="average-rating">
         <strong>Average Rating: </strong>
         {Math.floor(currentMovie.average_rating)} out of 10
@@ -57,9 +59,9 @@ const MovieDetails = ({ id }) => {
       <p className="runtime">
         <strong>Runtime: </strong> {currentMovie.runtime} Mins
       </p>
-      <Link to={`/`} className="back-btn">
+      {/* <Link to={`/`} className="back-btn">
         Go Back
-      </Link>
+      </Link> */}
     </section>
   );
 };
