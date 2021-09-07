@@ -1,6 +1,8 @@
 .movies-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 15px;
+  background-color: black;
 }

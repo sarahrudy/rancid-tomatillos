@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 const Nav = (props) => {
   return (
     <header className="navigation-bar">
-      <h1>RANCID TOMATILLOS</h1>
+      <h1 className="title">RANCID TOMATILLOS</h1>
       <NavLink to="/" className="back">
-        Home
+        <button>Home</button>
       </NavLink>
     </header>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
