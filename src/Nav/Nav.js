@@ -6,7 +6,7 @@ const Nav = (props) => {
     <header className="navigation-bar">
       <h1 className="title">RANCID TOMATILLOS</h1>
       <NavLink to="/" className="back">
-        Home
+        <button>Home</button>
       </NavLink>
     </header>
   );
