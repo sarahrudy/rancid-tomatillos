@@ -27,7 +27,7 @@ First project using React - Week 2, Mod 3 - at Turing School of Software and Des
 ## Instructions for Running and Viewing 
 
 1. Clone this repo to your local computer and run `npm start`
-2. Open `[http://localhost:3000]`(http://localhost:3000) to view it in the browser
+2. Open `[http://localhost:3000](http://localhost:3000)` to view it in the browser
 
 ## How to Navigate the App
 
