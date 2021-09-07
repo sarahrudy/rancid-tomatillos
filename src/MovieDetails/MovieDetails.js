@@ -35,11 +35,13 @@ const MovieDetails = ({ id }) => {
         <p>Release Date: {currentMovie.release_date}</p>
         <p className="average-rating">
           <strong>Average Rating: </strong>
-          {Math.floor(currentMovie.average_rating)}/10
+          {Math.floor(currentMovie.average_rating)} out of 10
         </p>
-
-        <p className="overview">
+        <p className="overview-title">
           <strong>Overview</strong>
+        </p>
+        <p className="overview">
+          <br />
           <br />
           {currentMovie.overview}
         </p>
