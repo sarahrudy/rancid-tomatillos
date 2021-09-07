@@ -1,9 +1,100 @@
 .single-movie-container {
-  height: 75vh;
-  background-size: cover;
+  /* height: 75vh; */
+  /* background-size: cover; */
+  /* opacity: 50%; */
+}
+/* 
+img {
+  width: 100vw;
+  height: 80vh;
+} */
+
+.movie-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.movie-image-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  z-index: 2;
+  background: linear-gradient(90deg, rgb(0 0 0 / 90%) 30%, rgba(0,0,0,0.3071) 70%);
 }
 
 .movie-details {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.movie-title{
+  position: absolute;
+  z-index: 10;
+  color:honeydew;
+}
+
+.tagline {
+  position: absolute;
+  font-style: italic;
+  z-index: 9;
+  /* font-size: smaller; */
+  top: 35px;
+  color:honeydew;
+}
+.runtime {
+  position: absolute;
+  z-index: 8;
+  font-size: x-small;
+  top: 70px;
+  color:honeydew;
+}
+
+.genres {
+  position: absolute;
+  z-index: 7;
+  font-size: smaller;
+  top: 87px;
+  color:honeydew;
+}
+
+.average-rating {
+  position: absolute;
+  z-index: 6;
+  font-size: smaller;
+  top: 110px;
+  width: 30%;
+  word-break: normal;
+  color:honeydew;
+}
+.revenue {
+  position: absolute;
+  z-index: 5;
+  top: 135px;
+  width: 20%;
+  color:honeydew;
+}
+
+.budget {
+  position: absolute;
+  z-index: 4;
+  top: 160px;
+  width: 20%;
+  color:honeydew;
+
+}
+.overview {
+  position: absolute;
+  z-index: 3;
+  top: 400px;
+  word-break: normal;
+  width: 20%;
+  color:honeydew;
 }

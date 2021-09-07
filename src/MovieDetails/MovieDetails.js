@@ -15,26 +15,47 @@ const MovieDetails = ({ id }) => {
   }, [id]);
 
   return (
-    <section
-      className="single-movie-container"
-      style={{ backgroundImage: `url(${currentMovie.backdrop_path})` }}
-    >
+    <section className="single-movie-container">
       <div className="movie-details">
-        <h1>{currentMovie.title}</h1>
-        <p>{currentMovie.genres}</p>
+        <div className="movie-image-fade" />
+        <img
+          className="movie-image"
+          src={currentMovie.backdrop_path}
+          alt={currentMovie.title}
+        />
+        <h1 className="movie-title">{currentMovie.title}</h1>
+        {currentMovie.tagline && (
+          <p className="tagline">{currentMovie.tagline}</p>
+        )}
+        {currentMovie.genres && (
+          <p className="genres">
+            <strong>Genres:</strong> {currentMovie.genres.join(' - ')}
+          </p>
+        )}
         <p>Release Date: {currentMovie.release_date}</p>
         <p className="average-rating">
+          <strong>Average Rating: </strong>
           {Math.floor(currentMovie.average_rating)}/10
         </p>
-        <p className="tagline">{currentMovie.tagline}</p>
-        <p className="overview">Overview: {currentMovie.overview}</p>
-        <p className="budget">
-          <strong>Budget: ${currentMovie.budget}</strong>
+
+        <p className="overview">
+          <strong>Overview</strong>
+          <br />
+          {currentMovie.overview}
         </p>
-        <p className="revenue">
-          <strong>Revenue: ${currentMovie.revenue}</strong>
+        {currentMovie.budget > 0 && (
+          <p className="budget">
+            <strong>Budget:</strong> ${currentMovie.budget.toLocaleString()}
+          </p>
+        )}
+        {currentMovie.revenue > 0 && (
+          <p className="revenue">
+            <strong>Revenue: </strong>${currentMovie.revenue.toLocaleString()}
+          </p>
+        )}
+        <p className="runtime">
+          <strong>Runtime: </strong> {currentMovie.runtime} Mins
         </p>
-        <p className="runtime">Runtime: {currentMovie.runtime} Mins</p>
         <Link to={`/`} className="back-btn">
           ◀ back
         </Link>
@@ -43,21 +64,7 @@ const MovieDetails = ({ id }) => {
   );
 };
 
-  // dummy data from API
-// { "movie": { 
-//   id: 1, 
-//   title: "Movie Title", 
-//   poster_path: "someURL", 
-//   backdrop_path: "someURL", 
-//   release_date: "2019-12-04", 
-//   overview: "Some overview", 
-//   average_rating: 6, 
-//   genres: [
-//     { id: 18, 
-//       name: "Drama" }], 
-//   budget: 63000000, 
-//   revenue: 100853753, 
-//   runtime: 139, 
-//   tagline: "Movie Tagline" } }
-
 export default MovieDetails;
+
+// unused - styling option
+// style={{ backgroundImage: `url(${currentMovie.backdrop_path})` }}
