@@ -8,7 +8,7 @@ First project using React - Week 2, Mod 3 - at Turing School of Software and Des
 + [Sarah Rudy](https://github.com/sarahrudy)
 
 ### GIF
-
+ ![recording (4)](https://user-images.githubusercontent.com/82064981/132330421-bdec2229-b7c9-4002-8365-e84cc4a4ac7c.gif)
 
 ### Learning Goals
 + Gain competency with React fundamentals
